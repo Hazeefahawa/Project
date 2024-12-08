@@ -1,0 +1,39 @@
+camdidate1=input("Enter 1st candidate name")
+camdidate2=input("Enter 2nd candidate name")
+cand1_votes=0
+cand2_votes=0
+voters_id=[101,102,103,104,105,106]
+no_of_voters=len(voters_id)
+print("number of voters:",no_of_voters)
+voted=[]
+while True:
+    if voters_id==[]:
+        print("voting is over")
+        if cand1_votes>cand2_votes:
+            print(f"{camdidate1} won the election with {cand1_votes}")
+        elif cand2_votes>cand1_votes:  
+            print (f"{camdidate2} won the election with {cand1_votes}")
+        elif cand1_votes==cand2_votes:
+            print("tied!!!")
+        break    
+
+    else:
+        voter=int(input("Enter your id"))   
+        if voter in voted:
+            print("you already voted")     
+        else:
+            if voter in voters_id:
+                print(f"1.{camdidate1}\n2.{camdidate2}")    
+                choice=int(input("enter your choice"))
+                if choice==1:
+                    cand1_votes+=1
+                    print(f"you voted {camdidate1}")
+                elif choice==2:
+                    cand2_votes+=1
+                    print("you voted {candidate2}")
+                voters_id.remove(voter)
+                voted.append(voter)
+            else:
+                print("you are not allowed to vote")    
+
+
